@@ -3,170 +3,232 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Casa El Golfito | Alquiler Vacacional</title>
-  <meta name="description" content="Casa El Golfito - Alquiler vacacional en El Golfo, Lanzarote." />
+  <title>Casa El Golfito | Luxury Holiday Rental Lanzarote</title>
+  <meta name="description" content="Casa El Golfito - Alquiler vacacional exclusivo en El Golfo, Lanzarote. Vistas al mar y tranquilidad absoluta." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     :root {
-      --primary:#1e7f6d;
-      --secondary:#f2f7f6;
-      --dark:#1f2933;
-      --light:#ffffff;
+      --primary: #1e7f6d;
+      --primary-dark: #14594c;
+      --accent: #d4a373;
+      --dark: #1f2933;
+      --light: #f9fbfb;
+      --white: #ffffff;
+      --shadow: 0 15px 40px rgba(0,0,0,0.08);
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
-    *{box-sizing:border-box;margin:0;padding:0;font-family:Segoe UI,Tahoma,Verdana,sans-serif}
-    body{background:var(--secondary);color:var(--dark);line-height:1.6}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--light); color: var(--dark); font-family: 'Lato', sans-serif; line-height: 1.7; overflow-x: hidden; }
+    h1, h2, h3, h4, .btn { font-family: 'Montserrat', sans-serif; }
 
-    header{
-      background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url('https://i.ibb.co/xtWyDt02/Whats-App-Image-2026-01-07-at-21-53-33.jpg') center/cover no-repeat;
-      color:#fff;padding:100px 20px;text-align:center;position:relative;
+    nav {
+      position: fixed; top: 0; width: 100%; padding: 10px 5%;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
+      z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.05);
     }
+    .nav-logo img { height: 90px; }
+    
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+    .instagram-link { color: var(--primary); font-size: 1.4rem; transition: var(--transition); }
+    .instagram-link:hover { color: var(--accent); transform: scale(1.1); }
 
-    .header-top{
-      position:absolute;top:20px;left:20px;
+    .lang-switch button {
+      background: transparent; border: 1px solid var(--primary); color: var(--primary);
+      padding: 5px 12px; border-radius: 20px; margin-left: 5px; cursor: pointer;
+      font-size: 0.8rem; font-weight: 700; transition: var(--transition);
     }
+    .lang-switch button.active { background: var(--primary); color: var(--white); }
 
-    .header-top img{
-      height:120px; /* Logo más grande */
+    header {
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://i.ibb.co/xtWyDt02/Whats-App-Image-2026-01-07-at-21-53-33.jpg') center/cover no-repeat fixed;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      text-align: center; color: var(--white); padding: 20px; padding-top: 100px;
     }
+    header h1 { font-size: 4rem; font-weight: 800; margin-bottom: 20px; animation: fadeInDown 1s ease-out; }
+    header p { font-size: 1.5rem; max-width: 700px; margin-bottom: 40px; animation: fadeInUp 1s ease-out 0.3s backwards; }
 
-    .lang-switch{position:absolute;top:20px;right:20px}
-    .lang-switch button{margin-left:5px;padding:6px 10px;border:none;border-radius:6px;cursor:pointer;font-weight:bold}
+    .btn {
+      display: inline-block; background: var(--primary); color: var(--white);
+      padding: 16px 40px; border-radius: 50px; text-decoration: none; font-weight: 700;
+      text-transform: uppercase; box-shadow: 0 10px 30px rgba(30, 127, 109, 0.4);
+      transition: var(--transition); animation: fadeInUp 1s ease-out 0.6s backwards;
+    }
+    .btn:hover { transform: translateY(-5px); background: var(--primary-dark); }
 
-    h1{font-size:3rem}
-    h2{color:var(--primary);margin-bottom:20px}
+    section { padding: 80px 5%; max-width: 1200px; margin: auto; }
+    .section-title { text-align: center; font-size: 2.5rem; color: var(--primary); margin-bottom: 60px; }
+    .section-title::after { content: ''; display: block; width: 60px; height: 4px; background: var(--accent); margin: 15px auto 0; }
 
-    .btn{display:inline-block;background:var(--primary);color:#fff;padding:14px 30px;border-radius:30px;text-decoration:none;font-weight:bold;margin-top:20px}
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 60px; }
+    .feature-card { background: var(--white); padding: 30px; border-radius: 20px; text-align: center; box-shadow: var(--shadow); transition: var(--transition); }
+    .feature-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
 
-    section{padding:70px 20px;max-width:1100px;margin:auto}
-    .box{background:#fff;border-radius:16px;padding:50px;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+    .content-box { background: var(--white); border-radius: 20px; padding: 50px; box-shadow: var(--shadow); display: flex; flex-wrap: wrap; align-items: center; gap: 40px; }
+    .content-text { flex: 1 1 400px; }
+    .content-img { flex: 1 1 300px; border-radius: 15px; overflow: hidden; height: 350px; }
+    .content-img img { width: 100%; height: 100%; object-fit: cover; }
 
-    /* Slider */
-    .slider-container{position:relative;overflow:hidden;border-radius:16px;margin-top:20px}
-    .slides{display:flex;transition:transform 0.5s ease;}
-    .slides img{width:100%;flex-shrink:0;object-fit:cover;height:400px}
-    .arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.5);color:#fff;border:none;padding:10px 15px;cursor:pointer;font-size:20px;border-radius:50%;}
-    .arrow-left{left:10px;}
-    .arrow-right{right:10px;}
+    .gallery-scroller { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 20px; padding-bottom: 30px; }
+    .gallery-scroller::-webkit-scrollbar { height: 8px; }
+    .gallery-scroller::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+    .gallery-item { flex: 0 0 350px; height: 450px; border-radius: 20px; overflow: hidden; scroll-snap-align: center; box-shadow: var(--shadow); }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .gallery-item:hover img { transform: scale(1.1); }
 
-    footer{background:var(--dark);color:#fff;text-align:center;padding:30px 20px}
+    .privacy-section { background: var(--dark); color: #ccc; padding: 60px 5%; }
+    .privacy-text { max-width: 900px; margin: auto; text-align: justify; font-size: 0.9rem; line-height: 1.8; }
 
-    @media(max-width:600px){h1{font-size:2.2rem}.box{padding:30px}.slides img{height:250px}.header-top img{height:80px}}
+    footer { background: #111; color: var(--white); text-align: center; padding: 40px; border-top: 1px solid #333; }
+    .footer-insta { display: inline-block; margin-bottom: 20px; color: var(--white); font-size: 1.5rem; transition: var(--transition); }
+    .footer-insta:hover { color: var(--accent); }
+
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media(max-width: 768px) {
+      header h1 { font-size: 2.5rem; }
+      nav { padding: 10px 20px; flex-direction: column; gap: 10px; }
+      .nav-logo img { height: 60px; }
+      .nav-right { gap: 10px; }
+      .gallery-item { flex: 0 0 280px; height: 350px; }
+    }
   </style>
 </head>
 <body>
 
+<nav>
+  <div class="nav-logo">
+    <a href="#"><img src="https://i.ibb.co/fzmDDcsx/Whats-App-Image-2026-01-07-at-22-09-35.png" alt="Logo"></a>
+  </div>
+  <div class="nav-right">
+    <a href="https://www.instagram.com/casaelgolfito?igsh=MXNoeHpsajdiaXhxYg==" target="_blank" class="instagram-link">
+        <i class="fab fa-instagram"></i>
+    </a>
+    <div class="lang-switch">
+        <button onclick="changeLang('es')" class="active">ES</button>
+        <button onclick="changeLang('en')">EN</button>
+        <button onclick="changeLang('fr')">FR</button>
+        <button onclick="changeLang('de')">DE</button>
+    </div>
+  </div>
+</nav>
+
 <header>
-  <div class="header-top">
-    <a href="#"><img src="https://i.ibb.co/fzmDDcsx/Whats-App-Image-2026-01-07-at-22-09-35.png" alt="Logo Casa El Golfito"></a>
-  </div>
-
-  <div class="lang-switch">
-    <button onclick="setLang('es')">ES</button>
-    <button onclick="setLang('en')">EN</button>
-    <button onclick="setLang('fr')">FR</button>
-    <button onclick="setLang('de')">DE</button>
-  </div>
-
-  <h1 data-es="Casa El Golfito" data-en="Casa El Golfito" data-fr="Casa El Golfito" data-de="Casa El Golfito">Casa El Golfito</h1>
-  <p data-es="Apartamento vacacional en El Golfo, Lanzarote." data-en="Holiday apartment in El Golfo, Lanzarote." data-fr="Appartement de vacances à El Golfo, Lanzarote." data-de="Ferienwohnung in El Golfo, Lanzarote.">Apartamento vacacional en El Golfo, Lanzarote.</p>
-
-  <a class="btn" href="https://www.booking.com/hotel/es/apartamento-el-golfito-el-golfo.es.html" target="_blank" data-es="Reservar ahora" data-en="Book now" data-fr="Réserver maintenant" data-de="Jetzt buchen">Reservar ahora</a>
+  <h1 data-key="title">Casa El Golfito</h1>
+  <p data-key="subtitle">Apartamento vacacional exclusivo en El Golfo, Lanzarote.</p>
+  <a href="https://www.booking.com/hotel/es/apartamento-el-golfito-el-golfo.es.html" target="_blank" class="btn" data-key="cta">
+    <i class="fas fa-calendar-check"></i> Reservar Ahora
+  </a>
 </header>
 
-<section>
-  <div class="box">
-    <h2 data-es="Sobre el alojamiento" data-en="About the accommodation" data-fr="À propos du logement" data-de="Über die Unterkunft">Sobre el alojamiento</h2>
-    <p>
-      Apartamento El Golfito es un alojamiento con wifi gratis y vistas a la montaña que está en El Golfo. Este apartamento está a 15 km de Montañas de Fuego y a 19 km de Parque Nacional de Timanfaya.
-    </p>
-    <p>
-      El apartamento tiene 2 dormitorios, 1 baño, ropa de cama, toallas, TV con canales vía satélite, cocina totalmente equipada y terraza con vistas al mar.
-    </p>
-    <p>
-      Se puede practicar ciclismo en los alrededores.
-    </p>
-    <p>
-      Lanzarote Golf Resort está a 21 km del alojamiento, y Rancho Texas Park está a 23 km. El aeropuerto (Aeropuerto de Lanzarote) está a 26 km.
-    </p>
+<section id="about" class="reveal">
+  <h2 class="section-title" data-key="about_title">La Experiencia</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <i class="fas fa-mountain"></i>
+      <h3 data-key="feat_1_title">Vistas Únicas</h3>
+      <p data-key="feat_1_desc">Vistas a la montaña y cercanía al Timanfaya.</p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-wifi"></i>
+      <h3 data-key="feat_2_title">Conectividad</h3>
+      <p data-key="feat_2_desc">Wifi gratis de alta velocidad.</p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-bed"></i>
+      <h3 data-key="feat_3_title">Confort Total</h3>
+      <p data-key="feat_3_desc">2 dormitorios y terraza con vistas.</p>
+    </div>
   </div>
-</section>
 
-<section>
-  <div class="box">
-    <h2 data-es="Galería" data-en="Gallery" data-fr="Galerie" data-de="Galerie">Galería</h2>
-
-    <div class="slider-container">
-      <button class="arrow arrow-left" onclick="moveSlide(-1)">&#10094;</button>
-      <div class="slides">
-        <img src="https://i.ibb.co/xtWyDt02/Whats-App-Image-2026-01-07-at-21-53-33.jpg" alt="Casa El Golfito">
-        <img src="https://i.ibb.co/RGqPj7LV/Whats-App-Image-2026-01-07-at-21-53-37-1.jpg" alt="Casa El Golfito">
-        <img src="https://i.ibb.co/39Z03wN2/Whats-App-Image-2026-01-07-at-21-53-37-2.jpg" alt="Casa El Golfito">
-        <img src="https://i.ibb.co/kg2XV7MW/Whats-App-Image-2026-01-07-at-21-53-37-3.jpg" alt="Casa El Golfito">
-        <img src="https://i.ibb.co/mrJCN5H0/Whats-App-Image-2026-01-07-at-21-53-37.jpg" alt="Casa El Golfito">
-        <img src="https://i.ibb.co/KzfkY33D/Whats-App-Image-2026-01-07-at-21-53-38.jpg" alt="Casa El Golfito">
-        <img src="https://i.ibb.co/gFrHcJ8d/Whats-App-Image-2026-01-07-at-21-53-39-1.jpg" alt="Casa El Golfito">
-        <img src="https://i.ibb.co/vCswSqpp/Whats-App-Image-2026-01-07-at-21-53-39-2.jpg" alt="Casa El Golfito">
-        <img src="https://i.ibb.co/YFcXmjGn/Whats-App-Image-2026-01-07-at-21-53-39.jpg" alt="Casa El Golfito">
-        <img src="https://i.ibb.co/WQvDXqY/Whats-App-Image-2026-01-07-at-21-53-40-1.jpg" alt="Casa El Golfito">
-        <img src="https://i.ibb.co/k24f7mTZ/Whats-App-Image-2026-01-07-at-21-53-40-2.jpg" alt="Casa El Golfito">
-        <img src="https://i.ibb.co/PzCCJjKx/Whats-App-Image-2026-01-07-at-21-53-40.jpg" alt="Casa El Golfito">
-        <img src="https://i.ibb.co/MxKR29qm/Whats-App-Image-2026-01-07-at-21-53-41.jpg" alt="Casa El Golfito">
-        <img src="https://i.ibb.co/r2ktGhTz/Whats-App-Image-2026-01-07-at-21-53-42.jpg" alt="Casa El Golfito">
-        <img src="https://i.ibb.co/4nkmRqJH/Whats-App-Image-2026-01-07-at-21-53-44-1.jpg" alt="Casa El Golfito">
-        <img src="https://i.ibb.co/KxgtXf1P/Whats-App-Image-2026-01-07-at-21-53-44.jpg" alt="Casa El Golfito">
-        <img src="https://i.ibb.co/SwKpSxbF/Whats-App-Image-2026-01-07-at-21-53-45-1.jpg" alt="Casa El Golfito">
-        <img src="https://i.ibb.co/SXP2CnpL/Whats-App-Image-2026-01-07-at-21-53-45-2.jpg" alt="Casa El Golfito">
-        <img src="https://i.ibb.co/chdT4DS4/Whats-App-Image-2026-01-07-at-21-53-45-3.jpg" alt="Casa El Golfito">
-        <img src="https://i.ibb.co/Lzyz2C1M/Whats-App-Image-2026-01-07-at-21-53-45-4.jpg" alt="Casa El Golfito">
-        <img src="https://i.ibb.co/xqhnrrJr/Whats-App-Image-2026-01-07-at-21-53-45.jpg" alt="Casa El Golfito">
-        <img src="https://i.ibb.co/B2R0SD9q/Whats-App-Image-2026-01-07-at-21-53-46-1.jpg" alt="Casa El Golfito">
-        <img src="https://i.ibb.co/cSmF5dnr/Whats-App-Image-2026-01-07-at-21-53-46.jpg" alt="Casa El Golfito">
-      </div>
-      <button class="arrow arrow-right" onclick="moveSlide(1)">&#10095;</button>
+  <div class="content-box">
+    <div class="content-text">
+      <h3 style="margin-bottom: 15px; color: var(--primary);" data-key="desc_title">Tu refugio en Lanzarote</h3>
+      <p data-key="long_desc_1">Apartamento El Golfito es un alojamiento con encanto, diseñado para ofrecer paz y conexión con la naturaleza. Situado en un entorno volcánico inigualable.</p>
+      <br>
+      <p data-key="long_desc_2">Ideal para los amantes del ciclismo, la gastronomía local y los atardeceres inolvidables frente al mar de Lanzarote.</p>
+    </div>
+    <div class="content-img">
+      <img src="https://i.ibb.co/pj8sq5g1/El-Golfo-Adobe-Stock-297251371.jpg" alt="El Golfo Lanzarote">
     </div>
   </div>
 </section>
 
-<section>
-  <div class="box">
-    <h2>Política de Privacidad</h2>
-    <p><strong>Responsable:</strong> Casa El Golfito</p>
-    <p><strong>Finalidad:</strong> Gestión de consultas y reservas.</p>
-    <p><strong>Legitimación:</strong> Consentimiento del usuario.</p>
-    <p><strong>Destinatarios:</strong> No se cederán datos a terceros salvo obligación legal.</p>
-    <p><strong>Derechos:</strong> Acceder, rectificar y suprimir los datos, así como otros derechos conforme al RGPD (UE 2016/679) y LOPDGDD 3/2018.</p>
-    <p><strong>Contacto:</strong> contacto@casaelgolfito.com</p>
-    <p><strong>Conservación:</strong> Los datos se conservarán el tiempo estrictamente necesario.</p>
+<section id="gallery" class="reveal">
+  <h2 class="section-title" data-key="gallery_title">Galería</h2>
+  <div class="gallery-scroller">
+    <div class="gallery-item"><img src="https://i.ibb.co/xtWyDt02/Whats-App-Image-2026-01-07-at-21-53-33.jpg"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/RGqPj7LV/Whats-App-Image-2026-01-07-at-21-53-37-1.jpg"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/39Z03wN2/Whats-App-Image-2026-01-07-at-21-53-37-2.jpg"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/kg2XV7MW/Whats-App-Image-2026-01-07-at-21-53-37-3.jpg"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/mrJCN5H0/Whats-App-Image-2026-01-07-at-21-53-37.jpg"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/KzfkY33D/Whats-App-Image-2026-01-07-at-21-53-38.jpg"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/gFrHcJ8d/Whats-App-Image-2026-01-07-at-21-53-39-1.jpg"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/vCswSqpp/Whats-App-Image-2026-01-07-at-21-53-39-2.jpg"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/YFcXmjGn/Whats-App-Image-2026-01-07-at-21-53-39.jpg"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/WQvDXqY/Whats-App-Image-2026-01-07-at-21-53-40-1.jpg"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/k24f7mTZ/Whats-App-Image-2026-01-07-at-21-53-40-2.jpg"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/PzCCJjKx/Whats-App-Image-2026-01-07-at-21-53-40.jpg"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/MxKR29qm/Whats-App-Image-2026-01-07-at-21-53-41.jpg"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/r2ktGhTz/Whats-App-Image-2026-01-07-at-21-53-42.jpg"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/4nkmRqJH/Whats-App-Image-2026-01-07-at-21-53-44-1.jpg"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/KxgtXf1P/Whats-App-Image-2026-01-07-at-21-53-44.jpg"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/SwKpSxbF/Whats-App-Image-2026-01-07-at-21-53-45-1.jpg"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/SXP2CnpL/Whats-App-Image-2026-01-07-at-21-53-45-2.jpg"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/chdT4DS4/Whats-App-Image-2026-01-07-at-21-53-45-3.jpg"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/Lzyz2C1M/Whats-App-Image-2026-01-07-at-21-53-45-4.jpg"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/xqhnrrJr/Whats-App-Image-2026-01-07-at-21-53-45.jpg"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/B2R0SD9q/Whats-App-Image-2026-01-07-at-21-53-46-1.jpg"></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/cSmF5dnr/Whats-App-Image-2026-01-07-at-21-53-46.jpg"></div>
   </div>
 </section>
 
+<div class="privacy-section">
+  <div class="privacy-text">
+    <h4 style="color: white; margin-bottom: 15px; text-align: center;">Política de Privacidad</h4>
+    <p>En cumplimiento del Reglamento (UE) 2016/679 (RGPD) y la LOPDGDD 3/2018, le informamos que los datos personales facilitados serán tratados por <strong>Casa El Golfito</strong> con la finalidad de gestionar las reservas y consultas. Sus datos no serán cedidos a terceros salvo obligación legal y se conservarán el tiempo necesario para cumplir con dichas obligaciones. Puede ejercer sus derechos de acceso, rectificación y supresión enviando un correo a nuestro contacto.</p>
+  </div>
+</div>
+
 <footer>
-  <p>© 2026 Casa El Golfito · Alquiler Vacacional · by AFD</p>
+  <a href="https://www.instagram.com/casaelgolfito?igsh=MXNoeHpsajdiaXhxYg==" target="_blank" class="footer-insta">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <p>© 2026 Casa El Golfito · Lanzarote · Diseñado con <i class="fas fa-heart" style="color:var(--primary)"></i> por AFD </p>
+
 </footer>
 
 <script>
-  function setLang(lang) {
-    document.querySelectorAll('[data-es]').forEach(el => {
-      const value = el.getAttribute('data-' + lang);
-      if (value) el.innerText = value;
+  const translations = {
+    es: { title: "Casa El Golfito", subtitle: "Apartamento vacacional exclusivo en El Golfo, Lanzarote.", cta: "Reservar Ahora", about_title: "La Experiencia", feat_1_title: "Vistas Únicas", feat_1_desc: "Vistas a la montaña y cercanía al Timanfaya.", feat_2_title: "Conectividad", feat_2_desc: "Wifi gratis de alta velocidad.", feat_3_title: "Confort Total", feat_3_desc: "2 dormitorios y terraza con vistas.", desc_title: "Tu refugio en Lanzarote", long_desc_1: "Apartamento El Golfito es un alojamiento con encanto, diseñado para ofrecer paz y conexión con la naturaleza.", long_desc_2: "Ideal para los amantes del ciclismo, la gastronomía local y los atardeceres inolvidables.", gallery_title: "Galería" },
+    en: { title: "Casa El Golfito", subtitle: "Exclusive holiday apartment in El Golfo, Lanzarote.", cta: "Book Now", about_title: "The Experience", feat_1_title: "Unique Views", feat_1_desc: "Mountain views near Timanfaya.", feat_2_title: "Connectivity", feat_2_desc: "Free high-speed WiFi.", feat_3_title: "Total Comfort", feat_3_desc: "2 bedrooms and sea view terrace.", desc_title: "Your retreat in Lanzarote", long_desc_1: "El Golfito is a charming stay designed for peace and nature connection.", long_desc_2: "Perfect for cycling lovers, local food and unforgettable sunsets.", gallery_title: "Gallery" }
+  };
+
+  function changeLang(lang) {
+    document.querySelectorAll('[data-key]').forEach(el => {
+      const key = el.getAttribute('data-key');
+      if (translations[lang] && translations[lang][key]) el.innerHTML = translations[lang][key];
     });
+    document.querySelectorAll('.lang-switch button').forEach(btn => btn.classList.toggle('active', btn.innerText.toLowerCase() === lang));
   }
 
-  // Slider
-  let index = 0;
-  const slides = document.querySelector('.slides');
-  const total = slides.children.length;
-
-  function moveSlide(step) {
-    index = (index + step + total) % total;
-    slides.style.transform = `translateX(-${index * 100}%)`;
-  }
-
-  // Autoplay
-  setInterval(() => { moveSlide(1); }, 4000); // Cambia cada 4 segundos
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 
 </body>
 </html>
-
