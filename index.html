@@ -4,12 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Casa El Golfito | Apartamento en El Golfo, Lanzarote</title>
-  <meta name="description" content="Reserva tu estancia en Casa El Golfito. Vistas al mar, cerca de Timanfaya y Los Hervideros.">
-  
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Apartamento Casa El Golfito | El Golfo, Lanzarote</title>
+  <meta name="description" content="Reserva en Casa El Golfito, Lanzarote. Apartamento exclusivo en El Golfo con vistas al mar, cerca de Timanfaya y Los Hervideros. ¡Mejor precio online!">
+  <meta property="og:title" content="Casa El Golfito | Tu refugio en Lanzarote" />
+  <meta property="og:image" content="https://i.ibb.co/xtWyDt02/Whats-App-Image-2026-01-07-at-21-53-33.jpg" />
+  <meta property="og:url" content="https://casaelgolfito.pages.dev/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     :root {
@@ -28,18 +32,22 @@
     body { background: var(--light); color: var(--dark); font-family: 'Lato', sans-serif; line-height: 1.7; overflow-x: hidden; }
     h1, h2, h3, h4, .btn { font-family: 'Montserrat', sans-serif; }
 
-    /* NAVEGACIÓN */
+    /* NAV */
     nav {
       position: fixed; top: 0; width: 100%; padding: 10px 5%;
       display: flex; justify-content: space-between; align-items: center;
       background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
-      z-index: 2000; box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+      z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.05);
     }
-    .nav-logo img { height: 80px; }
+    .nav-logo img { height: 90px; }
     .nav-right { display: flex; align-items: center; gap: 20px; }
+    .instagram-link { color: var(--primary); font-size: 1.4rem; transition: var(--transition); }
+    .instagram-link:hover { color: var(--accent); transform: scale(1.1); }
+
     .lang-switch button {
       background: transparent; border: 1px solid var(--primary); color: var(--primary);
-      padding: 5px 12px; border-radius: 20px; cursor: pointer; font-size: 0.8rem; font-weight: 700;
+      padding: 5px 12px; border-radius: 20px; margin-left: 5px; cursor: pointer;
+      font-size: 0.8rem; font-weight: 700; transition: var(--transition);
     }
     .lang-switch button.active { background: var(--primary); color: var(--white); }
 
@@ -48,15 +56,16 @@
       height: 100vh;
       background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://i.ibb.co/xtWyDt02/Whats-App-Image-2026-01-07-at-21-53-33.jpg') center/cover no-repeat fixed;
       display: flex; flex-direction: column; justify-content: center; align-items: center;
-      text-align: center; color: var(--white); padding: 20px;
+      text-align: center; color: var(--white); padding: 20px; padding-top: 100px;
     }
-    header h1 { font-size: 4rem; margin-bottom: 20px; font-weight: 800; }
-    header p { font-size: 1.5rem; max-width: 700px; margin-bottom: 40px; }
+    header h1 { font-size: 4rem; font-weight: 800; margin-bottom: 20px; animation: fadeInDown 1s ease-out; }
+    header p { font-size: 1.5rem; max-width: 700px; margin-bottom: 40px; animation: fadeInUp 1s ease-out 0.3s backwards; }
 
     .btn {
       display: inline-block; background: var(--primary); color: var(--white);
       padding: 16px 40px; border-radius: 50px; text-decoration: none; font-weight: 700;
-      text-transform: uppercase; box-shadow: 0 10px 30px rgba(30, 127, 109, 0.4); transition: var(--transition);
+      text-transform: uppercase; box-shadow: 0 10px 30px rgba(30, 127, 109, 0.4);
+      transition: var(--transition);
     }
     .btn:hover { transform: translateY(-5px); background: var(--primary-dark); }
 
@@ -65,61 +74,72 @@
     .section-title { text-align: center; font-size: 2.5rem; color: var(--primary); margin-bottom: 60px; }
     .section-title::after { content: ''; display: block; width: 60px; height: 4px; background: var(--accent); margin: 15px auto 0; }
 
+    .content-box { background: var(--white); border-radius: 20px; padding: 50px; box-shadow: var(--shadow); display: flex; flex-wrap: wrap; align-items: center; gap: 40px; }
+    .content-text { flex: 1 1 400px; }
+    .content-img { flex: 1 1 300px; border-radius: 15px; overflow: hidden; height: 350px; }
+    .content-img img { width: 100%; height: 100%; object-fit: cover; }
+
     /* GALERÍA */
-    .gallery-scroller { display: flex; overflow-x: auto; gap: 20px; padding-bottom: 30px; scroll-snap-type: x mandatory; }
+    .gallery-scroller { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 20px; padding-bottom: 30px; }
+    .gallery-scroller::-webkit-scrollbar { height: 8px; }
+    .gallery-scroller::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
     .gallery-item { flex: 0 0 350px; height: 450px; border-radius: 20px; overflow: hidden; scroll-snap-align: center; box-shadow: var(--shadow); }
-    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
     .gallery-item:hover img { transform: scale(1.1); }
 
-    /* MAPA PERSONALIZADO (WIDGET INTEGRADO) */
-    #map-wrapper {
+    /* MAPA Y DISPONIBILIDAD */
+    .map-container {
       position: relative;
-      width: 100%;
-      height: 600px;
-      margin-top: 20px;
-      border-radius: 25px;
+      border-radius: 20px;
       overflow: hidden;
       box-shadow: var(--shadow);
-      border: 5px solid white;
+      height: 600px;
+      margin-top: 20px;
     }
-    #custom-map { height: 100%; width: 100%; z-index: 1; }
-
-    .booking-widget {
-      position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
-      width: 90%; max-width: 550px; background: white; padding: 18px 30px;
+    .booking-bar {
+      position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+      width: 90%; max-width: 700px; background: white; padding: 20px;
       border-radius: 15px; display: flex; justify-content: space-between; align-items: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25); z-index: 1000;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3); z-index: 10;
     }
-    .price-info strong { display: block; font-size: 1.4rem; color: var(--dark); }
-    .btn-book {
-      background: #00a699; color: white; padding: 14px 25px; border-radius: 10px;
-      text-decoration: none; font-weight: 800; font-size: 0.85rem; transition: 0.3s;
+    .booking-price strong { font-size: 1.5rem; color: var(--dark); }
+    .btn-availability {
+      background: #00a699; color: white; padding: 14px 28px; border-radius: 10px;
+      text-decoration: none; font-weight: 800; font-size: 0.9rem; transition: 0.3s;
+      text-transform: uppercase;
     }
-    .btn-book:hover { background: #00847a; transform: scale(1.05); }
+    .btn-availability:hover { background: #00847a; transform: scale(1.05); }
 
-    /* FOOTER */
-    .privacy-section { background: var(--dark); color: #ccc; padding: 60px 5%; text-align: center; }
+    /* PRIVACY & FOOTER */
+    .privacy-section { background: var(--dark); color: #ccc; padding: 60px 5%; }
     footer { background: #111; color: var(--white); text-align: center; padding: 40px; }
 
     .reveal { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
     .reveal.active { opacity: 1; transform: translateY(0); }
 
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
     @media(max-width: 768px) {
       header h1 { font-size: 2.5rem; }
-      .booking-widget { flex-direction: column; gap: 15px; text-align: center; bottom: 20px; }
-      #map-wrapper { height: 500px; }
+      nav { flex-direction: column; gap: 10px; }
+      .booking-bar { flex-direction: column; text-align: center; gap: 15px; }
     }
   </style>
 </head>
 <body>
 
 <nav>
-  <div class="nav-logo"><img src="https://i.ibb.co/fzmDDcsx/Whats-App-Image-2026-01-07-at-22-09-35.png" alt="Logo"></div>
+  <div class="nav-logo">
+    <img src="https://i.ibb.co/fzmDDcsx/Whats-App-Image-2026-01-07-at-22-09-35.png" alt="Logo Casa El Golfito">
+  </div>
   <div class="nav-right">
-    <a href="https://www.instagram.com/casaelgolfito" target="_blank" style="color:var(--primary); font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.instagram.com/casaelgolfito" target="_blank" class="instagram-link"><i class="fab fa-instagram"></i></a>
     <div class="lang-switch">
         <button onclick="changeLang('es')" class="active">ES</button>
         <button onclick="changeLang('en')">EN</button>
+        <button onclick="changeLang('fr')">FR</button>
+        <button onclick="changeLang('de')">DE</button>
     </div>
   </div>
 </nav>
@@ -127,8 +147,22 @@
 <header>
   <h1 data-key="title">Casa El Golfito</h1>
   <p data-key="subtitle">Tu refugio volcánico frente al mar en Lanzarote.</p>
-  <a href="#location" class="btn" data-key="cta">Ver Ubicación</a>
+  <a href="https://www.holidu.es/d/66583476" target="_blank" class="btn" data-key="cta">Reservar Ahora</a>
 </header>
+
+<section id="about" class="reveal">
+  <div class="content-box">
+    <div class="content-text">
+      <h2 style="color: var(--primary); margin-bottom: 20px;" data-key="desc_title">Tu refugio en Lanzarote</h2>
+      <p data-key="long_desc_1">Apartamento El Golfito es un alojamiento con encanto en el pintoresco pueblo de El Golfo, rodeado de lava y océano.</p>
+      <br>
+      <p data-key="long_desc_2">Ubicación inmejorable para visitar el Charco de los Clicos y disfrutar de la mejor gastronomía costera de la isla.</p>
+    </div>
+    <div class="content-img">
+      <img src="https://i.ibb.co/pj8sq5g1/El-Golfo-Adobe-Stock-297251371.jpg" alt="Vistas de El Golfo">
+    </div>
+  </div>
+</section>
 
 <section id="gallery" class="reveal">
   <h2 class="section-title" data-key="gallery_title">Galería</h2>
@@ -160,87 +194,72 @@
 </section>
 
 <section id="location" class="reveal">
-  <h2 class="section-title" data-key="map_title">Explora el entorno</h2>
-  
-  <div id="map-wrapper">
-    <div id="custom-map"></div>
+  <h2 class="section-title" data-key="map_title">Ubicación y Entorno</h2>
+  <div class="map-container">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.6658!2d-13.8327!3d28.9832!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjg°NTgnNTkuNSJOIDEz°NDknNDguNyJX!5e0!3m2!1ses!2ses!4v1704720000000!5m2!1ses!2ses" 
+      width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+    </iframe>
 
-    <div class="booking-widget">
-        <div class="price-info">
-            <span data-key="from_price">Desde</span>
-            <strong>100 € <small style="font-size: 0.8rem; font-weight: 400;">/ noche</small></strong>
-        </div>
-        <a href="https://www.holidu.es/d/66583476" target="_blank" class="btn-book" data-key="btn_check">
-            COMPROBAR DISPONIBILIDAD
-        </a>
+    <div class="booking-bar">
+      <div class="booking-price">
+        <span style="font-size: 0.8rem; display: block; color: #666;" data-key="from_price">Desde</span>
+        <strong>100 €</strong> <small>/ noche</small>
+      </div>
+      <a href="https://www.holidu.es/d/66583476" target="_blank" class="btn-availability" data-key="btn_check">Comprobar disponibilidad</a>
     </div>
+  </div>
+  
+  <div style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center;">
+    <div><i class="fas fa-water" style="color:var(--primary)"></i> <p>Charco de los Clicos (2 min)</p></div>
+    <div><i class="fas fa-fire" style="color:var(--primary)"></i> <p>Timanfaya (15 min)</p></div>
+    <div><i class="fas fa-volcano" style="color:var(--primary)"></i> <p>Los Hervideros (5 min)</p></div>
   </div>
 </section>
 
 <div class="privacy-section">
-  <h4 data-key="privacy_title">Privacidad</h4>
-  <p data-key="privacy_text">Gestionamos tus datos conforme al RGPD para tu estancia en Casa El Golfito.</p>
+  <div class="privacy-text" style="max-width: 800px; margin: auto;">
+    <h4 style="color: white; margin-bottom: 15px; text-align: center;" data-key="privacy_title">Privacidad</h4>
+    <p data-key="privacy_text">Gestionamos tus datos conforme al RGPD para tramitar tu estancia en Casa El Golfito.</p>
+  </div>
 </div>
 
 <footer>
   <p>© 2026 Casa El Golfito · El Golfo · Lanzarote</p>
 </footer>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-  // 1. LÓGICA DEL MAPA PERSONALIZADO
-  const casaCoords = [28.98319, -13.83019];
-  const map = L.map('custom-map', { scrollWheelZoom: false }).setView(casaCoords, 14);
-
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-      attribution: '© OpenStreetMap'
-  }).addTo(map);
-
-  const iconCasa = L.divIcon({
-      html: '<i class="fa fa-home" style="color: #1e7f6d; font-size: 30px; text-shadow: 0 0 10px white;"></i>',
-      className: 'custom-div-icon', iconSize: [30, 30], iconAnchor: [15, 15]
-  });
-
-  const iconSitio = L.divIcon({
-      html: '<i class="fa fa-location-dot" style="color: #d4a373; font-size: 24px;"></i>',
-      className: 'custom-div-icon', iconSize: [24, 24], iconAnchor: [12, 24]
-  });
-
-  L.marker(casaCoords, {icon: iconCasa}).addTo(map)
-      .bindPopup("<b>Casa El Golfito</b>").openPopup();
-
-  const sitios = [
-      { name: "Charco de los Clicos", coords: [28.9805, -13.8322] },
-      { name: "Los Hervideros", coords: [28.9592, -13.8441] },
-      { name: "Parque Timanfaya", coords: [29.0016, -13.7915] },
-      { name: "Salinas de Janubio", coords: [28.9358, -13.8219] }
-  ];
-
-  sitios.forEach(s => L.marker(s.coords, {icon: iconSitio}).addTo(map).bindPopup(`<b>${s.name}</b>`));
-
-  // 2. LÓGICA DE TRADUCCIÓN
   const translations = {
     es: { 
-      title: "Casa El Golfito", subtitle: "Tu refugio volcánico frente al mar en Lanzarote.", cta: "Ver Ubicación",
-      gallery_title: "Galería", map_title: "Explora el entorno", from_price: "Desde", btn_check: "COMPROBAR DISPONIBILIDAD",
-      privacy_title: "Privacidad", privacy_text: "Gestionamos tus datos conforme al RGPD para tu estancia."
+      title: "Casa El Golfito", subtitle: "Tu refugio volcánico frente al mar en Lanzarote.", cta: "Reservar Ahora",
+      desc_title: "Tu refugio en Lanzarote", long_desc_1: "Apartamento El Golfito es un alojamiento con encanto en el pintoresco pueblo de El Golfo.",
+      map_title: "Ubicación y Entorno", from_price: "Desde", btn_check: "Comprobar disponibilidad",
+      gallery_title: "Galería", privacy_title: "Privacidad", privacy_text: "Gestionamos tus datos conforme al RGPD para tramitar tu estancia en Casa El Golfito."
     },
     en: { 
-      title: "Casa El Golfito", subtitle: "Your volcanic oceanfront retreat in Lanzarote.", cta: "See Location",
-      gallery_title: "Gallery", map_title: "Explore the Area", from_price: "From", btn_check: "CHECK AVAILABILITY",
-      privacy_title: "Privacy", privacy_text: "We handle your data according to GDPR for your stay."
+      title: "Casa El Golfito", subtitle: "Your volcanic oceanfront retreat in Lanzarote.", cta: "Book Now",
+      desc_title: "Your Lanzarote Retreat", long_desc_1: "El Golfito is a charming stay in the scenic village of El Golfo.",
+      map_title: "Location & Surroundings", from_price: "From", btn_check: "Check Availability",
+      gallery_title: "Gallery", privacy_title: "Privacy", privacy_text: "We handle your data according to GDPR to process your stay at Casa El Golfito."
+    },
+    fr: {
+        title: "Casa El Golfito", subtitle: "Votre refuge volcanique face à la mer à Lanzarote.", cta: "Réserver",
+        map_title: "Emplacement", from_price: "À partir de", btn_check: "Vérifier la disponibilité"
+    },
+    de: {
+        title: "Casa El Golfito", subtitle: "Ihr vulkanischer Rückzugsort direkt am Meer auf Lanzarote.", cta: "Jetzt Buchen",
+        map_title: "Lage & Umgebung", from_price: "Ab", btn_check: "Verfügbarkeit prüfen"
     }
   };
 
   function changeLang(lang) {
     document.querySelectorAll('[data-key]').forEach(el => {
       const key = el.getAttribute('data-key');
-      if (translations[lang][key]) el.innerHTML = translations[lang][key];
+      if (translations[lang] && translations[lang][key]) el.innerHTML = translations[lang][key];
     });
     document.querySelectorAll('.lang-switch button').forEach(btn => btn.classList.toggle('active', btn.innerText.toLowerCase() === lang));
   }
 
-  // 3. ANIMACIONES
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
   }, { threshold: 0.1 });
