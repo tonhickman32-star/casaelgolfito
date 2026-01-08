@@ -92,6 +92,38 @@
     .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
     .gallery-item:hover img { transform: scale(1.1); }
 
+.distance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.distance-item {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.distance-item:hover {
+    transform: translateY(-5px);
+}
+
+.distance-item i {
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.distance-item p {
+    font-size: 0.95rem;
+    color: var(--dark);
+}
+
     .privacy-section { background: var(--dark); color: #ccc; padding: 60px 5%; }
     .privacy-text { max-width: 900px; margin: auto; text-align: justify; font-size: 0.9rem; line-height: 1.8; }
 
@@ -203,6 +235,115 @@
   </div>
 </section>
 
+<section id="location" class="reveal">
+  <h2 class="section-title" data-key="map_title">Ubicación y Entorno</h2>
+  
+  <div class="map-wrapper-google">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3550.56!2d-13.83238!3d28.98319!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDU4JzU5LjUiTiAxM8KwNDknNDguNyJX!5e1!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses" 
+      width="100%" 
+      height="600" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy">
+    </iframe>
+
+    <div class="floating-booking-card">
+        <div class="price-info">
+            <span style="font-size: 0.7rem; color: #666; text-transform: uppercase; display: block;" data-key="from_price">Desde</span>
+            <strong>100 €</strong> <small>/ noche</small>
+        </div>
+        <a href="https://www.holidu.es/d/66583476" target="_blank" class="btn-check-map" data-key="btn_check">
+            Comprobar Disponibilidad
+        </a>
+    </div>
+  </div>
+<div class="distance-grid">
+    <div class="distance-item">
+        <i class="fas fa-walking"></i>
+        <p><strong data-key="dist_1_time">5 min</strong> <span data-key="dist_1_name">Charco de los Clicos</span></p>
+    </div>
+    <div class="distance-item">
+        <i class="fas fa-car"></i>
+        <p><strong data-key="dist_2_time">5 min</strong> <span data-key="dist_2_name">Los Hervideros</span></p>
+    </div>
+    <div class="distance-item">
+        <i class="fas fa-car"></i>
+        <p><strong data-key="dist_3_time">8 min</strong> <span data-key="dist_3_name">Salinas del Janubio</span></p>
+    </div>
+    <div class="distance-item">
+        <i class="fas fa-car"></i>
+        <p><strong data-key="dist_4_time">12 min</strong> <span data-key="dist_4_name">Timanfaya</span></p>
+    </div>
+</div>
+</section>
+
+<style>
+/* Contenedor relativo para que el botón flote dentro */
+.map-wrapper-google {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 5px solid white;
+}
+
+/* Tarjeta flotante */
+.floating-booking-card {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-width: 220px;
+}
+
+.price-info strong {
+    font-size: 1.4rem;
+    color: var(--dark);
+    font-family: 'Montserrat';
+}
+
+.btn-check-map {
+    background: #00a699; /* Color estilo Airbnb */
+    color: white;
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.8rem;
+    transition: 0.3s;
+}
+
+.btn-check-map:hover {
+    background: #008489;
+    transform: translateY(-2px);
+}
+
+/* Ajuste para móviles */
+@media (max-width: 768px) {
+    .floating-booking-card {
+        top: auto;
+        bottom: 20px;
+        right: 10px;
+        left: 10px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+    }
+}
+</style>
+
 <div class="privacy-section">
   <div class="privacy-text">
     <h4 style="color: white; margin-bottom: 15px; text-align: center;" data-key="privacy_title">Política de Privacidad</h4>
@@ -228,7 +369,18 @@
       desc_title: "Tu refugio en Lanzarote", long_desc_1: "Apartamento El Golfito es un alojamiento con encanto, ubicado en el pintoresco pueblo costero de El Golfo.", 
       long_desc_2: "Ideal para disfrutar de la gastronomía local, senderismo por volcanes y los mejores atardeceres.", 
       gallery_title: "Galería", privacy_title: "Política de Privacidad",
-      privacy_text: "En cumplimiento del Reglamento (UE) 2016/679 (RGPD) y la LOPDGDD 3/2018, le informamos que los datos personales facilitados serán tratados por Casa El Golfito con la finalidad de gestionar las reservas y consultas. Sus datos no serán cedidos a terceros salvo obligación legal."
+      privacy_text: "En cumplimiento del Reglamento (UE) 2016/679 (RGPD) y la LOPDGDD 3/2018, le informamos que los datos personales facilitados serán tratados por Casa El Golfito con la finalidad de gestionar las reservas y consultas. Sus datos no serán cedidos a terceros salvo obligación legal.",
+map_title: "Ubicación y Entorno",
+from_price: "Desde",
+btn_check: "Comprobar Disponibilidad",
+dist_1_time: "5 min caminando",
+    dist_1_name: "Charco de los Clicos",
+    dist_2_time: "5 min en coche",
+    dist_2_name: "Los Hervideros",
+    dist_3_time: "8 min en coche",
+    dist_3_name: "Salinas del Janubio",
+    dist_4_time: "12 min en coche",
+    dist_4_name: "Timanfaya"
     },
     en: { 
       title: "Casa El Golfito", subtitle: "Holiday apartment with sea views in El Golfo, Lanzarote.", cta: "Book Now", 
@@ -238,7 +390,18 @@
       desc_title: "Your retreat in Lanzarote", long_desc_1: "El Golfito is a charming accommodation located in the picturesque village of El Golfo.", 
       long_desc_2: "Perfect for local gastronomy, volcanic hiking and the best sunsets in the Canary Islands.", 
       gallery_title: "Gallery", privacy_title: "Privacy Policy",
-      privacy_text: "In compliance with Regulation (EU) 2016/679 (GDPR), we inform you that the personal data provided will be processed by Casa El Golfito to manage bookings. Your data will not be transferred to third parties except by legal obligation."
+      privacy_text: "In compliance with Regulation (EU) 2016/679 (GDPR), we inform you that the personal data provided will be processed by Casa El Golfito to manage bookings. Your data will not be transferred to third parties except by legal obligation.",
+map_title: "Location & Surroundings",
+    from_price: "From",
+    btn_check: "Check Availability",
+dist_1_time: "5 min walking",
+    dist_1_name: "Green Lagoon",
+    dist_2_time: "5 min by car",
+    dist_2_name: "Los Hervideros",
+    dist_3_time: "8 min by car",
+    dist_3_name: "Janubio Salt Pans",
+    dist_4_time: "12 min by car",
+    dist_4_name: "Timanfaya Park"
     },
     fr: { 
       title: "Casa El Golfito", subtitle: "Appartement de vacances avec vue mer à El Golfo, Lanzarote.", cta: "Réserver Maintenant", 
@@ -248,7 +411,18 @@
       desc_title: "Votre refuge à Lanzarote", long_desc_1: "L'appartement El Golfito est un charmant hébergement situé dans le village d'El Golfo.", 
       long_desc_2: "Idéal pour la gastronomie locale, les randonnées volcaniques et les meilleurs couchers de soleil.", 
       gallery_title: "Galerie", privacy_title: "Politique de Confidentialité",
-      privacy_text: "Conformément au règlement (UE) 2016/679 (RGPD), nous vous informons que les données personnelles fournies seront traitées par Casa El Golfito. Vos données ne seront pas cédées à des tiers."
+      privacy_text: "Conformément au règlement (UE) 2016/679 (RGPD), nous vous informons que les données personnelles fournies seront traitées par Casa El Golfito. Vos données ne seront pas cédées à des tiers.",
+map_title: "Emplacement et Environs",
+    from_price: "À partir de",
+    btn_check: "Vérifier la Disponibilité",
+dist_1_time: "5 min à pied",
+    dist_1_name: "Charco de los Clicos",
+    dist_2_time: "5 min en voiture",
+    dist_2_name: "Los Hervideros",
+    dist_3_time: "8 min en voiture",
+    dist_3_name: "Salinas del Janubio",
+    dist_4_time: "12 min en voiture",
+    dist_4_name: "Parc Timanfaya"
     },
     de: { 
       title: "Casa El Golfito", subtitle: "Ferienwohnung mit Meerblick in El Golfo, Lanzarote.", cta: "Jetzt Buchen", 
@@ -258,7 +432,18 @@
       desc_title: "Ihr Rückzugsort auf Lanzarote", long_desc_1: "Das Apartment El Golfito ist eine charmante Unterkunft im malerischen Dorf El Golfo.", 
       long_desc_2: "Ideal für lokale Gastronomie, Vulkanwanderungen und die schönsten Sonnenuntergänge.", 
       gallery_title: "Galerie", privacy_title: "Datenschutzerklärung",
-      privacy_text: "Gemäß der Verordnung (EU) 2016/679 (DSGVO) informieren wir Sie, dass die bereitgestellten Daten von Casa El Golfito verarbeitet werden. Ihre Daten werden nicht an Dritte weitergegeben."
+      privacy_text: "Gemäß der Verordnung (EU) 2016/679 (DSGVO) informieren wir Sie, dass die bereitgestellten Daten von Casa El Golfito verarbeitet werden. Ihre Daten werden nicht an Dritte weitergegeben.",
+map_title: "Lage und Umgebung",
+    from_price: "Ab",
+    btn_check: "Verfügbarkeit Prüfen",
+dist_1_time: "5 min zu Fuß",
+    dist_1_name: "Charco de los Clicos",
+    dist_2_time: "5 min mit dem Auto",
+    dist_2_name: "Los Hervideros",
+    dist_3_time: "8 min mit dem Auto",
+    dist_3_name: "Salinas del Janubio",
+    dist_4_time: "12 min mit dem Auto",
+    dist_4_name: "Timanfaya Park"
     }
   };
 
@@ -276,5 +461,6 @@
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 
+</script>
 </body>
 </html>
