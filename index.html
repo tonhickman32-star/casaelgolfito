@@ -3,12 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Apartamento Casa El Golfito | El Golfo, Lanzarote</title>
-  <meta name="description" content="Reserva en Casa El Golfito, Lanzarote. Apartamento exclusivo en El Golfo con vistas al mar, cerca de Timanfaya y Los Hervideros. ¡Mejor precio online!">
-  <meta property="og:title" content="Casa El Golfito | Tu refugio en Lanzarote" />
+
+  <title>Apartamento Casa El Golfito | Alojamiento en El Golfo, Lanzarote</title>
+  <meta name="description" content="Reserva tu estancia en Casa El Golfito. Apartamento vacacional exclusivo en El Golfo, Lanzarote. Vistas al mar, confort y tranquilidad cerca del Parque Nacional de Timanfaya." />
+  <meta name="keywords" content="El Golfo Lanzarote, alquiler vacacional, apartamento Lanzarote, Timanfaya, alojamiento con vistas al mar, Casa El Golfito" />
+  <link rel="canonical" href="https://casaelgolfito.pages.dev/" />
+
+  <meta property="og:title" content="Casa El Golfito | Luxury Holiday Rental Lanzarote" />
+  <meta property="og:description" content="Disfruta de un refugio único frente al mar en el pueblo volcánico de El Golfo." />
   <meta property="og:image" content="https://i.ibb.co/xtWyDt02/Whats-App-Image-2026-01-07-at-21-53-33.jpg" />
   <meta property="og:url" content="https://casaelgolfito.pages.dev/" />
+  <meta property="og:type" content="website" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +37,6 @@
     body { background: var(--light); color: var(--dark); font-family: 'Lato', sans-serif; line-height: 1.7; overflow-x: hidden; }
     h1, h2, h3, h4, .btn { font-family: 'Montserrat', sans-serif; }
 
-    /* NAV */
     nav {
       position: fixed; top: 0; width: 100%; padding: 10px 5%;
       display: flex; justify-content: space-between; align-items: center;
@@ -51,7 +55,6 @@
     }
     .lang-switch button.active { background: var(--primary); color: var(--white); }
 
-    /* HEADER */
     header {
       height: 100vh;
       background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://i.ibb.co/xtWyDt02/Whats-App-Image-2026-01-07-at-21-53-33.jpg') center/cover no-repeat fixed;
@@ -65,21 +68,23 @@
       display: inline-block; background: var(--primary); color: var(--white);
       padding: 16px 40px; border-radius: 50px; text-decoration: none; font-weight: 700;
       text-transform: uppercase; box-shadow: 0 10px 30px rgba(30, 127, 109, 0.4);
-      transition: var(--transition);
+      transition: var(--transition); animation: fadeInUp 1s ease-out 0.6s backwards;
     }
     .btn:hover { transform: translateY(-5px); background: var(--primary-dark); }
 
-    /* SECCIONES */
     section { padding: 80px 5%; max-width: 1200px; margin: auto; }
     .section-title { text-align: center; font-size: 2.5rem; color: var(--primary); margin-bottom: 60px; }
     .section-title::after { content: ''; display: block; width: 60px; height: 4px; background: var(--accent); margin: 15px auto 0; }
+
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 60px; }
+    .feature-card { background: var(--white); padding: 30px; border-radius: 20px; text-align: center; box-shadow: var(--shadow); transition: var(--transition); }
+    .feature-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
 
     .content-box { background: var(--white); border-radius: 20px; padding: 50px; box-shadow: var(--shadow); display: flex; flex-wrap: wrap; align-items: center; gap: 40px; }
     .content-text { flex: 1 1 400px; }
     .content-img { flex: 1 1 300px; border-radius: 15px; overflow: hidden; height: 350px; }
     .content-img img { width: 100%; height: 100%; object-fit: cover; }
 
-    /* GALERÍA */
     .gallery-scroller { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 20px; padding-bottom: 30px; }
     .gallery-scroller::-webkit-scrollbar { height: 8px; }
     .gallery-scroller::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
@@ -87,32 +92,12 @@
     .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
     .gallery-item:hover img { transform: scale(1.1); }
 
-    /* MAPA Y DISPONIBILIDAD */
-    .map-container {
-      position: relative;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      height: 600px;
-      margin-top: 20px;
-    }
-    .booking-bar {
-      position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
-      width: 90%; max-width: 700px; background: white; padding: 20px;
-      border-radius: 15px; display: flex; justify-content: space-between; align-items: center;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.3); z-index: 10;
-    }
-    .booking-price strong { font-size: 1.5rem; color: var(--dark); }
-    .btn-availability {
-      background: #00a699; color: white; padding: 14px 28px; border-radius: 10px;
-      text-decoration: none; font-weight: 800; font-size: 0.9rem; transition: 0.3s;
-      text-transform: uppercase;
-    }
-    .btn-availability:hover { background: #00847a; transform: scale(1.05); }
-
-    /* PRIVACY & FOOTER */
     .privacy-section { background: var(--dark); color: #ccc; padding: 60px 5%; }
-    footer { background: #111; color: var(--white); text-align: center; padding: 40px; }
+    .privacy-text { max-width: 900px; margin: auto; text-align: justify; font-size: 0.9rem; line-height: 1.8; }
+
+    footer { background: #111; color: var(--white); text-align: center; padding: 40px; border-top: 1px solid #333; }
+    .footer-insta { display: inline-block; margin-bottom: 20px; color: var(--white); font-size: 1.5rem; transition: var(--transition); }
+    .footer-insta:hover { color: var(--accent); }
 
     .reveal { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
     .reveal.active { opacity: 1; transform: translateY(0); }
@@ -122,8 +107,10 @@
 
     @media(max-width: 768px) {
       header h1 { font-size: 2.5rem; }
-      nav { flex-direction: column; gap: 10px; }
-      .booking-bar { flex-direction: column; text-align: center; gap: 15px; }
+      nav { padding: 10px 20px; flex-direction: column; gap: 10px; }
+      .nav-logo img { height: 60px; }
+      .nav-right { gap: 10px; }
+      .gallery-item { flex: 0 0 280px; height: 350px; }
     }
   </style>
 </head>
@@ -131,10 +118,12 @@
 
 <nav>
   <div class="nav-logo">
-    <img src="https://i.ibb.co/fzmDDcsx/Whats-App-Image-2026-01-07-at-22-09-35.png" alt="Logo Casa El Golfito">
+    <a href="#"><img src="https://i.ibb.co/fzmDDcsx/Whats-App-Image-2026-01-07-at-22-09-35.png" alt="Logo Casa El Golfito"></a>
   </div>
   <div class="nav-right">
-    <a href="https://www.instagram.com/casaelgolfito" target="_blank" class="instagram-link"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.instagram.com/casaelgolfito?igsh=MXNoeHpsajdiaXhxYg==" target="_blank" class="instagram-link" aria-label="Siguenos en Instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
     <div class="lang-switch">
         <button onclick="changeLang('es')" class="active">ES</button>
         <button onclick="changeLang('en')">EN</button>
@@ -146,20 +135,42 @@
 
 <header>
   <h1 data-key="title">Casa El Golfito</h1>
-  <p data-key="subtitle">Tu refugio volcánico frente al mar en Lanzarote.</p>
-  <a href="https://www.holidu.es/d/66583476" target="_blank" class="btn" data-key="cta">Reservar Ahora</a>
+  <p data-key="subtitle">Apartamento vacacional con vistas al mar en El Golfo, Lanzarote.</p>
+  <a href="https://www.booking.com/hotel/es/apartamento-el-golfito-el-golfo.es.html" target="_blank" class="btn" data-key="cta">
+  <a href="https://www.holidu.es/d/66583476?utm_term=android_share_searchresult&utm_source=app_share.html" target="_blank" class="btn" data-key="cta">
+    <i class="fas fa-calendar-check"></i> Reservar Ahora
+  </a>
 </header>
 
 <section id="about" class="reveal">
+  <h2 class="section-title" data-key="about_title">La Experiencia</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <i class="fas fa-mountain" aria-hidden="true"></i>
+      <h3 data-key="feat_1_title">Vistas Únicas</h3>
+      <p data-key="feat_1_desc">Vistas a la montaña volcánica y cercanía al Parque Nacional Timanfaya.</p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-wifi" aria-hidden="true"></i>
+      <h3 data-key="feat_2_title">Conectividad</h3>
+      <p data-key="feat_2_desc">Wifi gratuito de alta velocidad para nómadas digitales o descanso.</p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-bed" aria-hidden="true"></i>
+      <h3 data-key="feat_3_title">Confort Total</h3>
+      <p data-key="feat_3_desc">2 dormitorios amplios y terraza privada con vistas espectaculares.</p>
+    </div>
+  </div>
+
   <div class="content-box">
     <div class="content-text">
-      <h2 style="color: var(--primary); margin-bottom: 20px;" data-key="desc_title">Tu refugio en Lanzarote</h2>
-      <p data-key="long_desc_1">Apartamento El Golfito es un alojamiento con encanto en el pintoresco pueblo de El Golfo, rodeado de lava y océano.</p>
+      <h3 style="margin-bottom: 15px; color: var(--primary);" data-key="desc_title">Tu refugio en Lanzarote</h3>
+      <p data-key="long_desc_1">Apartamento El Golfito es un alojamiento con encanto, ubicado en el pintoresco pueblo costero de El Golfo, diseñado para ofrecer paz absoluta.</p>
       <br>
-      <p data-key="long_desc_2">Ubicación inmejorable para visitar el Charco de los Clicos y disfrutar de la mejor gastronomía costera de la isla.</p>
+      <p data-key="long_desc_2">Ideal para disfrutar de la gastronomía local, senderismo por volcanes y los mejores atardeceres de las Islas Canarias.</p>
     </div>
     <div class="content-img">
-      <img src="https://i.ibb.co/pj8sq5g1/El-Golfo-Adobe-Stock-297251371.jpg" alt="Vistas de El Golfo">
+      <img src="https://i.ibb.co/pj8sq5g1/El-Golfo-Adobe-Stock-297251371.jpg" alt="Vistas panorámicas de El Golfo en Lanzarote cerca de Casa El Golfito">
     </div>
   </div>
 </section>
@@ -193,62 +204,62 @@
   </div>
 </section>
 
-<section id="location" class="reveal">
-  <h2 class="section-title" data-key="map_title">Ubicación y Entorno</h2>
-  <div class="map-container">
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.6658!2d-13.8327!3d28.9832!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjg°NTgnNTkuNSJOIDEz°NDknNDguNyJX!5e0!3m2!1ses!2ses!4v1704720000000!5m2!1ses!2ses" 
-      width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-    </iframe>
-
-    <div class="booking-bar">
-      <div class="booking-price">
-        <span style="font-size: 0.8rem; display: block; color: #666;" data-key="from_price">Desde</span>
-        <strong>100 €</strong> <small>/ noche</small>
-      </div>
-      <a href="https://www.holidu.es/d/66583476" target="_blank" class="btn-availability" data-key="btn_check">Comprobar disponibilidad</a>
-    </div>
-  </div>
-  
-  <div style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center;">
-    <div><i class="fas fa-water" style="color:var(--primary)"></i> <p>Charco de los Clicos (2 min)</p></div>
-    <div><i class="fas fa-fire" style="color:var(--primary)"></i> <p>Timanfaya (15 min)</p></div>
-    <div><i class="fas fa-volcano" style="color:var(--primary)"></i> <p>Los Hervideros (5 min)</p></div>
-  </div>
-</section>
-
 <div class="privacy-section">
-  <div class="privacy-text" style="max-width: 800px; margin: auto;">
-    <h4 style="color: white; margin-bottom: 15px; text-align: center;" data-key="privacy_title">Privacidad</h4>
-    <p data-key="privacy_text">Gestionamos tus datos conforme al RGPD para tramitar tu estancia en Casa El Golfito.</p>
+  <div class="privacy-text">
+    <h4 style="color: white; margin-bottom: 15px; text-align: center;" data-key="privacy_title">Política de Privacidad</h4>
+    <p data-key="privacy_text">En cumplimiento del Reglamento (UE) 2016/679 (RGPD) y la LOPDGDD 3/2018, le informamos que los datos personales facilitados serán tratados por Casa El Golfito con la finalidad de gestionar las reservas y consultas.</p>
   </div>
 </div>
 
 <footer>
-  <p>© 2026 Casa El Golfito · El Golfo · Lanzarote</p>
+  <a href="https://www.instagram.com/casaelgolfito?igsh=MXNoeHpsajdiaXhxYg==" target="_blank" class="footer-insta" aria-label="Instagram">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <p>© 2026 Casa El Golfito · El Golfo · Lanzarote · Diseñado con <i class="fas fa-heart" style="color:var(--primary)"></i> por AFD </p>
+
 </footer>
 
 <script>
   const translations = {
     es: { 
-      title: "Casa El Golfito", subtitle: "Tu refugio volcánico frente al mar en Lanzarote.", cta: "Reservar Ahora",
-      desc_title: "Tu refugio en Lanzarote", long_desc_1: "Apartamento El Golfito es un alojamiento con encanto en el pintoresco pueblo de El Golfo.",
-      map_title: "Ubicación y Entorno", from_price: "Desde", btn_check: "Comprobar disponibilidad",
-      gallery_title: "Galería", privacy_title: "Privacidad", privacy_text: "Gestionamos tus datos conforme al RGPD para tramitar tu estancia en Casa El Golfito."
+      title: "Casa El Golfito", subtitle: "Apartamento vacacional con vistas al mar en El Golfo, Lanzarote.", cta: "Reservar Ahora", 
+      about_title: "La Experiencia", feat_1_title: "Vistas Únicas", feat_1_desc: "Vistas a la montaña volcánica y cercanía al Parque Nacional Timanfaya.", 
+      feat_2_title: "Conectividad", feat_2_desc: "Wifi gratuito de alta velocidad para descanso o teletrabajo.", 
+      feat_3_title: "Confort Total", feat_3_desc: "2 dormitorios amplios y terraza privada con vistas espectaculares.", 
+      desc_title: "Tu refugio en Lanzarote", long_desc_1: "Apartamento El Golfito es un alojamiento con encanto, ubicado en el pintoresco pueblo costero de El Golfo.", 
+      long_desc_2: "Ideal para disfrutar de la gastronomía local, senderismo por volcanes y los mejores atardeceres.", 
+      gallery_title: "Galería", privacy_title: "Política de Privacidad",
+      privacy_text: "En cumplimiento del Reglamento (UE) 2016/679 (RGPD) y la LOPDGDD 3/2018, le informamos que los datos personales facilitados serán tratados por Casa El Golfito con la finalidad de gestionar las reservas y consultas. Sus datos no serán cedidos a terceros salvo obligación legal."
     },
     en: { 
-      title: "Casa El Golfito", subtitle: "Your volcanic oceanfront retreat in Lanzarote.", cta: "Book Now",
-      desc_title: "Your Lanzarote Retreat", long_desc_1: "El Golfito is a charming stay in the scenic village of El Golfo.",
-      map_title: "Location & Surroundings", from_price: "From", btn_check: "Check Availability",
-      gallery_title: "Gallery", privacy_title: "Privacy", privacy_text: "We handle your data according to GDPR to process your stay at Casa El Golfito."
+      title: "Casa El Golfito", subtitle: "Holiday apartment with sea views in El Golfo, Lanzarote.", cta: "Book Now", 
+      about_title: "The Experience", feat_1_title: "Unique Views", feat_1_desc: "Volcanic mountain views near Timanfaya National Park.", 
+      feat_2_title: "Connectivity", feat_2_desc: "Free high-speed WiFi for remote work or relaxation.", 
+      feat_3_title: "Total Comfort", feat_3_desc: "2 spacious bedrooms and private terrace with amazing views.", 
+      desc_title: "Your retreat in Lanzarote", long_desc_1: "El Golfito is a charming accommodation located in the picturesque village of El Golfo.", 
+      long_desc_2: "Perfect for local gastronomy, volcanic hiking and the best sunsets in the Canary Islands.", 
+      gallery_title: "Gallery", privacy_title: "Privacy Policy",
+      privacy_text: "In compliance with Regulation (EU) 2016/679 (GDPR), we inform you that the personal data provided will be processed by Casa El Golfito to manage bookings. Your data will not be transferred to third parties except by legal obligation."
     },
-    fr: {
-        title: "Casa El Golfito", subtitle: "Votre refuge volcanique face à la mer à Lanzarote.", cta: "Réserver",
-        map_title: "Emplacement", from_price: "À partir de", btn_check: "Vérifier la disponibilité"
+    fr: { 
+      title: "Casa El Golfito", subtitle: "Appartement de vacances avec vue mer à El Golfo, Lanzarote.", cta: "Réserver Maintenant", 
+      about_title: "L'Expérience", feat_1_title: "Vues Uniques", feat_1_desc: "Vues sur les montagnes volcaniques près de Timanfaya.", 
+      feat_2_title: "Connectivité", feat_2_desc: "Wi-Fi haut débit gratuit pour le travail ou le repos.", 
+      feat_3_title: "Confort Total", feat_3_desc: "2 chambres spacieuses et terrasse privée avec vue imprenable.", 
+      desc_title: "Votre refuge à Lanzarote", long_desc_1: "L'appartement El Golfito est un charmant hébergement situé dans le village d'El Golfo.", 
+      long_desc_2: "Idéal pour la gastronomie locale, les randonnées volcaniques et les meilleurs couchers de soleil.", 
+      gallery_title: "Galerie", privacy_title: "Politique de Confidentialité",
+      privacy_text: "Conformément au règlement (UE) 2016/679 (RGPD), nous vous informons que les données personnelles fournies seront traitées par Casa El Golfito. Vos données ne seront pas cédées à des tiers."
     },
-    de: {
-        title: "Casa El Golfito", subtitle: "Ihr vulkanischer Rückzugsort direkt am Meer auf Lanzarote.", cta: "Jetzt Buchen",
-        map_title: "Lage & Umgebung", from_price: "Ab", btn_check: "Verfügbarkeit prüfen"
+    de: { 
+      title: "Casa El Golfito", subtitle: "Ferienwohnung mit Meerblick in El Golfo, Lanzarote.", cta: "Jetzt Buchen", 
+      about_title: "Die Erfahrung", feat_1_title: "Einzigartige Aussicht", feat_1_desc: "Blick auf Vulkanberge in der Nähe des Timanfaya-Nationalparks.", 
+      feat_2_title: "Konnektivität", feat_2_desc: "Kostenloses Highspeed-WLAN für Homeoffice oder Erholung.", 
+      feat_3_title: "Totaler Komfort", feat_3_desc: "2 geräumige Schlafzimmer und private Terrasse mit toller Aussicht.", 
+      desc_title: "Ihr Rückzugsort auf Lanzarote", long_desc_1: "Das Apartment El Golfito ist eine charmante Unterkunft im malerischen Dorf El Golfo.", 
+      long_desc_2: "Ideal für lokale Gastronomie, Vulkanwanderungen und die schönsten Sonnenuntergänge.", 
+      gallery_title: "Galerie", privacy_title: "Datenschutzerklärung",
+      privacy_text: "Gemäß der Verordnung (EU) 2016/679 (DSGVO) informieren wir Sie, dass die bereitgestellten Daten von Casa El Golfito verarbeitet werden. Ihre Daten werden nicht an Dritte weitergegeben."
     }
   };
 
